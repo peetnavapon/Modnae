@@ -1,0 +1,15 @@
+.sub-contact{
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+.sub-contact.active {
+    background-color: #ECB96A;
+}
+.select-contact-option{
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 20px;
+}

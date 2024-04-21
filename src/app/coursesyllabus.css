@@ -1,0 +1,25 @@
+.pee-one{
+    border-radius: 15px;
+    background-image: url(../assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+.pee-two{
+    border-radius: 15px;
+    background-image: url(../assets/test.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.pee-three{
+    border-radius: 15px;
+    background-image: url(../assets/test2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.pee-four{
+    border-radius: 15px;
+    background-image: url(../assets/test3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

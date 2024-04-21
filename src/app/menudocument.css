@@ -16,26 +16,26 @@ body{
 }
 .top-left{
     border-radius: 25px 0 0 0;
-    background-image: url(../assets/background.jpg);
+    background-image: url(../assets/คอส.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
 }
 .top-right{
     border-radius: 0 25px 0 0;
-    background-image: url(../assets/test.jpg);
+    background-image: url(../assets/เล่มหลักสูตร.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 .bot-left{
     border-radius: 0 0 0 25px;
-    background-image: url(../assets/test2.jpg);
+    background-image: url(../assets/ปฏิทิน.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 .bot-right{
     border-radius: 0 0 25px 0;
-    background-image: url(../assets/test3.jpg);
+    background-image: url(../assets/ช่องทางการติดต่อ.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -47,7 +47,7 @@ body{
     text-align: center;
 }
 .background-opacity{
-    background:  rgba(255, 255, 255, 0.3);
+    background:  rgba(255, 255, 255, 0.01);
     width: 400px;
     height: 200px;
     display: flex;
@@ -56,18 +56,13 @@ body{
     text-decoration: none;
     transition-duration: 0.2s;
 }
-.background-opacity:hover{
-    background:  rgba(255, 255, 255, 0);   
-}
-.text{
-    font-size: 20px;
-    color: #000000;
-}
+
+
 
 @media screen and (max-width: 500px) {
     .allcontent{
         flex-direction: column;
-        margin-top: 120px;
+        margin-top: 30vw;
         position: absolute;
         z-index: 0;
     }

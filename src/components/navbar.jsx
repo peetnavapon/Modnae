@@ -1,9 +1,9 @@
 import './navbar.css'
 import { BrowserRouter, Link } from "react-router-dom";
 
-function hamMenu(){
-    const ham = document.querySelector(".navbar-toggle")
-    const menu = document.querySelector(".navbar-nav")
+function hamMenu() {
+    const ham = document.querySelector(".navbar-toggle");
+    const menu = document.querySelector(".navbar-nav");
     if (ham.classList.contains("active")) {
         menu.style.display = "none";
         ham.classList.remove("active");
@@ -11,8 +11,27 @@ function hamMenu(){
         menu.style.display = "flex";
         ham.classList.add("active");
     }
-    
 }
+
+// เพิ่มฟังก์ชั่นเพิ่มเติมเพื่อปิดเมนูเมื่อหน้าจอขยาย
+function closeMenuOnResize() {
+    const menu = document.querySelector(".navbar-nav");
+    const ham = document.querySelector(".navbar-toggle");
+    if (window.innerWidth > 500) {
+        menu.style.display = "flex";
+        ham.classList.add("active");
+    } else {
+        menu.style.display = "none";
+        ham.classList.remove("active");
+    }
+}
+
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
+window.addEventListener("load", closeMenuOnResize);
+
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อปรับขนาดหน้าจอ
+window.addEventListener("resize", closeMenuOnResize);
+
 
 export function Navbar() {
   return (

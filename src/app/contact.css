@@ -1,0 +1,76 @@
+.contact-center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 130px;
+    flex-direction: row;
+    justify-content: center;
+}
+.contact-content{
+    display: flex;
+    flex-direction: row;
+    width: 1200px;
+    height: 600px;
+
+}
+.contact-menu{
+    background-color: #FFF7DC;
+    width: 35%;
+    
+}
+.contact-detail{
+    background-color: #FFEDBF;
+    width: 100%;
+}
+.contact-detail div{
+    margin: 30px;
+}
+.contact-detail a{
+    color: black;
+    margin: 5px;
+}
+.contact-detail p{
+    margin-left: 30px;
+}
+.contact-detail h2{
+    text-align: center;
+}
+.hide-content{
+    display: none;
+}
+.response-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width : 600px) {
+    .contact-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-menu{
+        width: 90vw;
+        justify-content: center;
+    }
+    .hide-content{
+        display: flex;
+        width: 100%;
+        border-bottom: 1px solid black;
+        margin-top: -35px;
+    }
+    .contact-detail{
+        display: none;
+    }
+    .hide-content div{
+        margin: 30px;
+    }
+    .hide-content a{
+        color: black;
+        margin: 5px;
+    }
+    .hide-content p{
+        margin-left: 30px;
+    }
+
+}

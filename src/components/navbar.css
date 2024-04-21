@@ -76,7 +76,7 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 100vw;
       padding: 0;
       margin: 0;
     }
@@ -91,6 +91,7 @@
         padding: 0;
         min-height: 50px;
         height: auto;
+        width: 100vw;
     }
     .navbar-toggle {
         display: block;
@@ -101,5 +102,9 @@
     .nav-link {
         width: 100%;
         justify-content: center;
+    
+    }
+    .navbar-nav.active {
+        display: flex !important;
     }
    }
