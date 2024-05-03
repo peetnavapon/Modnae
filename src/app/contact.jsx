@@ -20,7 +20,7 @@ export function Contact(){
         const showcontent = index
         setActiveItem(showcontent);
         if(window.innerWidth < 600){
-            setActiveItem=""
+            const setActiveItem=""
         }
         if (showcontent == 0){
             setContent(University)
