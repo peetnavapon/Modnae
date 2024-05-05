@@ -38,7 +38,7 @@ export function Navbar() {
     <>
         <nav className="navbar">
             <div className='first'>
-                <a className='logo' href="/">Modnae</a>
+                <a className='logo' href="/">MODNAE</a>
                 <div className="navbar-toggle" onClick={hamMenu}>
                     <span></span>
                     <span></span>
@@ -54,7 +54,7 @@ export function Navbar() {
                     <Link to="/readreview" className="nav-link">อ่านรีวิว</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/menudocument" className="nav-link">เอกสารอื่นๆที่เกี่ยวข้อง</Link>
+                    <Link to="/menudocument" className="nav-link">เอกสารอื่น ๆ</Link>
                 </li>
             </ul>
         </nav>
