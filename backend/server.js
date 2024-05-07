@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const app = express();
 app.use(express.json());
 app.use(
@@ -11,7 +10,7 @@ app.use(
     credentials: true,
   })
 );
-
+// app.get('/',(req,res)=> res.send(`Hello world`))
 mongoose.connect(
   "mongodb+srv://modnoy:modnaetuanoy@modnae.olhb5sg.mongodb.net/modnaeDB"
 );
