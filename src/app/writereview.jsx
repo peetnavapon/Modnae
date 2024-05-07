@@ -38,6 +38,7 @@ export function WriteReview() {
                 <b>ปีการศึกษา </b>
                 <span>
                   <input
+                    name="year"
                     className="subject-name"
                     placeholder="ระบุปีการศึกษา"
                   ></input>
@@ -46,7 +47,8 @@ export function WriteReview() {
               <p>
                 <b>อาจารย์ผู้สอน </b>
                 <span>
-                  <select className="subject-name" defaultChecked="">
+                  <input className="subject-name" placeholder="อาจารย์ผู้สอน" type="text" />
+                  {/* <select className="subject-name" defaultChecked="">
                     <option value="none" selected disabled hidden>
                       กรุณาระบุผู้สอน
                     </option>
@@ -57,7 +59,7 @@ export function WriteReview() {
                     <option>ดร.ปริเวท วรรณโกวิท</option>
                     <option>ดร.วิธวินท์ สุสุทธิ</option>
                     <option>ดร.ฐิตาภรณ์ กนกรัตน</option>
-                  </select>
+                  </select> */}
                 </span>
               </p>
               <p>
