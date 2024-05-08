@@ -16,6 +16,7 @@ export function Contact() {
   const [activeItem, setActiveItem] = useState(0);
   const [content, setContent] = useState(University);
 
+<<<<<<< Updated upstream
   const handleItemClick = (index) => {
     const showcontent = index;
     setActiveItem(showcontent);
@@ -38,6 +39,30 @@ export function Contact() {
       setContent(Health);
     }
   };
+=======
+    const handleItemClick = (index) => {
+        const showcontent = index
+        setActiveItem(showcontent);
+        if(window.innerWidth < 600){
+            setActiveItem=""
+        }
+        if (showcontent == 0){
+            setContent(University)
+        }else if (showcontent == 1){
+            setContent(Sinfo)
+        }else if (showcontent == 2){
+            setContent(Office)
+        }else if (showcontent == 3){
+            setContent(Gen)
+        }else if (showcontent == 4){
+            setContent(Sola)
+        }else if (showcontent == 5){
+            setContent(Faculty)
+        }else if (showcontent == 6){
+            setContent(Health)
+        }
+    };
+>>>>>>> Stashed changes
 
   return (
     <>
