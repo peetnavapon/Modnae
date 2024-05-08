@@ -4,13 +4,51 @@ import { Navbar } from "../components/navbar";
 import { Sidenav } from "../components/sidebar";
 import "./writereview.css";
 import "../components/sendBtn.css";
+import axios from "axios";
 
 export function WriteReview() {
   const [selectedSubject, setSelectedSubject] = useState("");
+  const [input, setInput] = useState({
+    subject: "",
+    year: "",
+    teacher: "",
+    descriptions: "",
+  });
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  }
+  useEffect(() => {
+    handleChange({ target: { name: "subject", value: selectedSubject } });
+  }, [selectedSubject]);
 
   const handleSelectSubject = (subject) => {
     setSelectedSubject(subject);
   };
+
+  function handleClick(event) {
+    const newReview = {
+      subject: input.subject,
+      year: input.year,
+      teacher: input.teacher,
+      descriptions: input.descriptions,
+    };
+    console.log(newReview);
+    axios
+      .post("http://localhost:5000/WriteReview", newReview)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <>
@@ -20,7 +58,7 @@ export function WriteReview() {
         <Sidenav onSelectSubject={handleSelectSubject} />
 
         <div className="writereview-wrapper">
-          <form>
+          <form onSubmit={handleClick}>
             <div className="header-container">
               <p className="header-container-p">
                 <b>คุณกำลังเขียนรีวิวในวิชา </b>
@@ -41,13 +79,21 @@ export function WriteReview() {
                     name="year"
                     className="subject-name"
                     placeholder="ระบุปีการศึกษา"
+                    onChange={handleChange}
+                    value={input.year}
                   ></input>
                 </span>
               </p>
               <p>
                 <b>อาจารย์ผู้สอน </b>
                 <span>
-                  <input className="subject-name" placeholder="อาจารย์ผู้สอน" type="text" />
+                  <input 
+                    type="text" 
+                    className="subject-name"
+                    placeholder="กรุณาระบุผู้สอน"
+                    name="teacher"
+                    onChange={handleChange}
+                    value={input.teacher}/>
                   {/* <select className="subject-name" defaultChecked="">
                     <option value="none" selected disabled hidden>
                       กรุณาระบุผู้สอน
@@ -68,10 +114,17 @@ export function WriteReview() {
               <textarea
                 placeholder="รีวิว"
                 className="textarea-field"
+                name="descriptions"
+                onChange={handleChange}
+                value={input.descriptions}
               ></textarea>
               <br />
               <div className="flex center">
-                <button className="send-btn flex">ยืนยัน</button>
+                <button
+                 className="send-btn flex"
+                 type="submit"
+                 name="submit"
+                 >ยืนยัน</button>
               </div>
             </div>
           </form>
