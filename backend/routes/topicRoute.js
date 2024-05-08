@@ -15,4 +15,14 @@ router.route("/Topic").post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route("/ReadTopic").get((req,res)=>{
+    console.log(req.body);
+    Topic.find()
+    .then(Topic=> {
+        console.log(Topic)
+        res.json(Topic)
+    })
+    .catch(err=> res.json(err))
+})
+
 module.exports = router;

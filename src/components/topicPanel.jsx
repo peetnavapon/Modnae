@@ -21,8 +21,11 @@ export function TopicPanel() {
     descriptions: "",
   });
   function handleChange(evt) {
-    setCount(evt.target.value.length);
     const { name, value } = evt.target;
+
+    if (evt.target.name == "title") {
+      setCount(evt.target.value.length);
+    }
     setInput((prevInput) => {
       return {
         ...prevInput,
@@ -62,7 +65,9 @@ export function TopicPanel() {
         <div className=" topic-content px-2-py-2">
           <form onSubmit={handleClick}>
             <div className=" mb-1">
-              <label>ระบุคำถามของคุณ</label>
+              <label>
+                ระบุคำถามของคุณ<span className="red">*</span>
+              </label>
               <input
                 type="text"
                 placeholder="โปรดระบุคำถาม"
@@ -71,6 +76,7 @@ export function TopicPanel() {
                 className="question-input"
                 name="title"
                 value={input.title}
+                required
                 onChange={handleChange}
               />
               <p id="character-count" className="text-sm">
@@ -78,13 +84,16 @@ export function TopicPanel() {
               </p>
             </div>
             <div>
-              <label>รายละเอียดคำถาม</label>
+              <label>
+                รายละเอียดคำถาม<span className="red">*</span>
+              </label>
               <textarea
                 type="text"
                 placeholder="รายละเอียดคำถามของคุณ"
                 className="textarea-field"
                 name="descriptions"
                 value={input.descriptions}
+                required
                 onChange={handleChange}
               />
             </div>

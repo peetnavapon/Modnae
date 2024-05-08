@@ -21,7 +21,6 @@ export function Topic() {
           </section>
           <section id="section3">
             <CommentPanel />
-            <CommentPanel />
           </section>
         </div>
       </main>

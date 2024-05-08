@@ -2,10 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const topic = require('./routes/topicRoute');
+const Topic = require('./routes/topicRoute');
 const WriteReview = require('./routes/writeReviewRoute')
 const ReadReview = require('./routes/readReviewRoute')
-
 app.use(express.json());
 app.use(
   cors({
@@ -15,7 +14,7 @@ app.use(
   })
 );
 
-app.use("/",topic)
+app.use("/",Topic)
 app.use("/",WriteReview)
 app.use("/",ReadReview)
 app
