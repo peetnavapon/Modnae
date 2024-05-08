@@ -1,6 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "../app/topic.css";
+
 function toggleTopic() {
   const topicBtn = document.getElementById("topic");
   const hideBtn = document.getElementById("hideBtn");
@@ -14,6 +16,36 @@ function toggleTopic() {
 }
 export function TopicPanel() {
   const [count, setCount] = useState(0);
+  const [input, setInput] = useState({
+    title: "",
+    descriptions: "",
+  });
+  function handleChange(evt) {
+    setCount(evt.target.value.length);
+    const { name, value } = evt.target;
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  }
+
+  function handleClick(event) {
+    const newPost = {
+      title: input.title,
+      descriptions: input.descriptions,
+    };
+    console.log(newPost);
+    axios
+      .post("http://localhost:5000/Topic", newPost)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
   return (
     <>
       <div className=" flex center mb-1">
@@ -22,9 +54,13 @@ export function TopicPanel() {
         </button>
       </div>
 
-      <div className="topic-panel mb-1" id="topic" style={{ display: " none " }}>
+      <div
+        className="topic-panel mb-1"
+        id="topic"
+        style={{ display: " none " }}
+      >
         <div className=" topic-content px-2-py-2">
-          <form>
+          <form onSubmit={handleClick}>
             <div className=" mb-1">
               <label>ระบุคำถามของคุณ</label>
               <input
@@ -33,7 +69,9 @@ export function TopicPanel() {
                 maxLength="120"
                 id="question"
                 className="question-input"
-                onChange={(e) => setCount(e.target.value.length)}
+                name="title"
+                value={input.title}
+                onChange={handleChange}
               />
               <p id="character-count" className="text-sm">
                 จำกัด 120 ตัวอักษร ({count}/120)
@@ -45,10 +83,20 @@ export function TopicPanel() {
                 type="text"
                 placeholder="รายละเอียดคำถามของคุณ"
                 className="textarea-field"
+                name="descriptions"
+                value={input.descriptions}
+                onChange={handleChange}
               />
             </div>
             <div className="flex center">
-              <button className="send-btn">ส่ง</button>
+              <button
+                type="submit"
+                name="submit"
+                role="button"
+                className="send-btn"
+              >
+                โพสต์
+              </button>
             </div>
           </form>
         </div>
