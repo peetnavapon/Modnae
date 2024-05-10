@@ -20,7 +20,8 @@ export function ReadReview() {
       axios
         .get(`http://localhost:5000/ReadReview?subject=${selectedSubject}`)
         .then((response) => {
-          setReviews(response.data);
+          const reversedReviews = response.data.reverse();
+          setReviews(reversedReviews);
         })
         .catch((error) => {
           console.error("Error fetching reviews:", error);
@@ -29,7 +30,8 @@ export function ReadReview() {
       axios
         .get(`http://localhost:5000/ReadReview`)
         .then((response) => {
-          setReviews(response.data);
+          const reversedReviews = response.data.reverse();
+          setReviews(reversedReviews);
         })
         .catch((error) => {
           console.error("Error fetching reviews:", error);
@@ -59,9 +61,11 @@ export function ReadReview() {
               {reviews.map((review, index) => (
                 <ReviewCard
                   key={index}
+                  subject={review.subject}
                   year={review.year}
                   teacher={review.teacher}
                   description={review.descriptions}
+                  selectedSubject={selectedSubject}
                 />
               ))}
             </div>

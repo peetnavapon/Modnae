@@ -2,6 +2,7 @@ import React from "react";
 import "./allpee.css";
 import { Navbar } from "../components/navbar";
 import { Subject } from "../components/subject";
+import moderr from "../assets/moderror.png";
 
 export function PeeThree() {
   return (
@@ -14,38 +15,9 @@ export function PeeThree() {
             <hr />
           </div>
           <div className="syllabus-content">
-            <div className="syllabus-subcontent">
-              <div className="frame-subcontent">
-                <h2>ภาคเรียนที่ 1</h2>
-                <hr />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-              </div>
-            </div>
-
-            <div className="syllabus-subcontent">
-              <div className="frame-subcontent">
-                <h2>ภาคเรียนที่ 2</h2>
-                <hr />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-              </div>
+            <div className="mod-error flex-row center">
+              <p className="err-text">ยังไม่มีข้อมูลในขณะนี้</p>
+              <img src={moderr} alt="error" className="moderr" />
             </div>
           </div>
         </div>

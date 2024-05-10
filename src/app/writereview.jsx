@@ -56,45 +56,49 @@ export function WriteReview() {
 
       <div className="writereview-container">
         <Sidenav onSelectSubject={handleSelectSubject} />
+        {selectedSubject != "" ? (
+          <div className="writereview-wrapper">
+            <form onSubmit={handleClick}>
+              <div className="header-container">
+                <p className="header-container-p">
+                  <b>คุณกำลังเขียนรีวิวในวิชา </b>
+                  <span>
+                    <b className="subject-name">
+                      {selectedSubject !== ""
+                        ? selectedSubject
+                        : "กรุณาเลือกวิชา"}
+                    </b>
+                  </span>
+                </p>
+              </div>
 
-        <div className="writereview-wrapper">
-          <form onSubmit={handleClick}>
-            <div className="header-container">
-              <p className="header-container-p">
-                <b>คุณกำลังเขียนรีวิวในวิชา </b>
-                <span>
-                  <b className="subject-name">
-                    {selectedSubject !== ""
-                      ? selectedSubject
-                      : "กรุณาเลือกวิชา"}
-                  </b>
-                </span>
-              </p>
-            </div>
-            <div className="write-review-container">
-              <p>
-                <b>ปีการศึกษา </b>
-                <span>
-                  <input
-                    name="year"
-                    className="subject-name"
-                    placeholder="ระบุปีการศึกษา"
-                    onChange={handleChange}
-                    value={input.year}
-                  ></input>
-                </span>
-              </p>
-              <p>
-                <b>อาจารย์ผู้สอน </b>
-                <span>
-                  <input 
-                    type="text" 
-                    className="subject-name"
-                    placeholder="กรุณาระบุผู้สอน"
-                    name="teacher"
-                    onChange={handleChange}
-                    value={input.teacher}/>
-                  {/* <select className="subject-name" defaultChecked="">
+              <div className="write-review-container">
+                <p>
+                  <b>ปีการศึกษา </b>
+                  <span>
+                    <input
+                      name="year"
+                      className="subject-name"
+                      placeholder="ระบุปีการศึกษา"
+                      onChange={handleChange}
+                      value={input.year}
+                      required
+                    ></input>
+                  </span>
+                </p>
+                <p>
+                  <b>อาจารย์ผู้สอน </b>
+                  <span>
+                    <input
+                      type="text"
+                      className="subject-name"
+                      placeholder="กรุณาระบุผู้สอน"
+                      name="teacher"
+                      onChange={handleChange}
+                      value={input.teacher}
+                      required
+                    />
+                    {/* <select className="subject-name" defaultChecked="">
                     <option value="none" selected disabled hidden>
                       กรุณาระบุผู้สอน
                     </option>
@@ -106,29 +110,46 @@ export function WriteReview() {
                     <option>ดร.วิธวินท์ สุสุทธิ</option>
                     <option>ดร.ฐิตาภรณ์ กนกรัตน</option>
                   </select> */}
-                </span>
-              </p>
-              <p>
-                <b>คำรีวิว</b>
-              </p>
-              <textarea
-                placeholder="รีวิว"
-                className="textarea-field"
-                name="descriptions"
-                onChange={handleChange}
-                value={input.descriptions}
-              ></textarea>
-              <br />
-              <div className="flex center">
-                <button
-                 className="send-btn flex"
-                 type="submit"
-                 name="submit"
-                 >ยืนยัน</button>
+                  </span>
+                </p>
+                <p>
+                  <b>คำรีวิว</b>
+                </p>
+                <textarea
+                  placeholder="รีวิว"
+                  className="textarea-field"
+                  name="descriptions"
+                  onChange={handleChange}
+                  value={input.descriptions}
+                  required
+                ></textarea>
+                <br />
+                <div className="flex center">
+                  <button className="send-btn flex" type="submit" name="submit">
+                    ยืนยัน
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        ) : (
+          <div className="writereview-wrapper">
+            <form onSubmit={handleClick}>
+              <div className="header-container">
+                <p className="header-container-p">
+                  <b>คุณกำลังเขียนรีวิวในวิชา </b>
+                  <span>
+                    <b className="subject-name">
+                      {selectedSubject !== ""
+                        ? selectedSubject
+                        : "กรุณาเลือกวิชา"}
+                    </b>
+                  </span>
+                </p>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </>
   );

@@ -19,16 +19,8 @@ export function PeeTwo() {
                 <h2>ภาคเรียนที่ 1</h2>
                 <hr />
                 <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
+                  initialLink="https://drive.google.com/file/d/15VUq_LsgWjAInPKWvsg82HiLu9Cq0Pde/view?usp=sharing"
+                  initialText="LNG 223 English for Workplace Communication"
                 />
               </div>
             </div>
@@ -38,12 +30,8 @@ export function PeeTwo() {
                 <h2>ภาคเรียนที่ 2</h2>
                 <hr />
                 <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
-                />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1Dw1Qial-F79k0E8SyU1nn7J5YNgPpTmX/view?usp=sharing"
-                  initialText="CSS111 Exploring Computer Science"
+                  initialLink="https://drive.google.com/file/d/1awJyKxr1Aq1kMQC63lO3cqb_hZ76zE2i/view?usp=sharing"
+                  initialText="STD 214 Probability and Statics"
                 />
               </div>
             </div>
