@@ -18,11 +18,32 @@ router.route("/Topic").post((req, res) => {
 router.route("/ReadTopic").get((req,res)=>{
     console.log(req.body);
     Topic.find()
+    .populate('comments','content')
     .then(Topic=> {
         console.log(Topic)
         res.json(Topic)
     })
     .catch(err=> res.json(err))
 })
+router.route("/Topic/:id/comment").post((req, res) => {
+    const topicId = req.params.id;
+    const newComment = {
+      content: req.body.content,
+      // Add userId and username if applicable based on user authentication
+    };
+  
+    Topic.findByIdAndUpdate(
+      topicId,
+      { $push: { comments: newComment } },
+      { new: true } // Return the updated document
+    )
+      .then((topic) => {
+        if (!topic) {
+          return res.status(404).json("Topic not found");
+        }
+        res.json(topic);
+      })
+      .catch((err) => res.status(400).json("Error: " + err));
+  });
 
 module.exports = router;

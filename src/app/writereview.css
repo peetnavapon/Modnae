@@ -26,7 +26,7 @@
   resize: none;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 720px) {
   .header-container-p {
     display: flex;
     flex-direction: column;

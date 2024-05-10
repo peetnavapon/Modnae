@@ -1,4 +1,6 @@
 import React from "react";
+import "./readreview.css";
+import moderr from "../assets/moderror.png";
 import { useState, useEffect } from "react";
 import { Navbar } from "../components/navbar";
 import { Sidenav } from "../components/sidebar";
@@ -8,14 +10,15 @@ import axios from "axios";
 export function ReadReview() {
   const [selectedSubject, setSelectedSubject] = useState("");
   const [reviews, setReviews] = useState([]);
-  console.log(selectedSubject)
+  console.log(reviews);
   const handleSelectSubject = (subject) => {
     setSelectedSubject(subject);
   };
 
   useEffect(() => {
     if (selectedSubject !== "") {
-      axios.get(`http://localhost:5000/ReadReview?subject=${selectedSubject}`)
+      axios
+        .get(`http://localhost:5000/ReadReview?subject=${selectedSubject}`)
         .then((response) => {
           setReviews(response.data);
         })
@@ -23,7 +26,8 @@ export function ReadReview() {
           console.error("Error fetching reviews:", error);
         });
     } else {
-      axios.get(`http://localhost:5000/ReadReview`)
+      axios
+        .get(`http://localhost:5000/ReadReview`)
         .then((response) => {
           setReviews(response.data);
         })
@@ -32,8 +36,6 @@ export function ReadReview() {
         });
     }
   }, [selectedSubject]);
-  
-  
 
   return (
     <>
@@ -43,7 +45,7 @@ export function ReadReview() {
 
         <div className="readreview-wrapper">
           <div className="header-container">
-            <p>
+            <p className="header-container-p">
               <b>คุณกำลังอ่านรีวิวในวิชา </b>
               <span>
                 <b className="subject-name">
@@ -52,14 +54,23 @@ export function ReadReview() {
               </span>
             </p>
           </div>
-          {reviews.map((review, index) => (
-            <ReviewCard
-              key={index}
-              year={review.year}
-              teacher={review.teacher}
-              description={review.descriptions}
-            />
-          ))}
+          {reviews.length > 0 ? (
+            <div>
+              {reviews.map((review, index) => (
+                <ReviewCard
+                  key={index}
+                  year={review.year}
+                  teacher={review.teacher}
+                  description={review.descriptions}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="mod-error flex-row center">
+              <p className="err-text">วิชานี้ยังไม่มีรีวิว</p>
+              <img src={moderr} alt="error" className="moderr" />
+            </div>
+          )}
         </div>
       </div>
     </>

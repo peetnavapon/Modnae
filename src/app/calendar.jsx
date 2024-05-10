@@ -13,7 +13,7 @@ export function Calendar() {
       <div className="pdf-iframe">
         <h1>ปฏิทินมหาวิทยาลัย</h1>
         <div className="top-iframe">
-          <h4>ปฏิทินปีการศึกษา 2567</h4>
+          <h4 className="calendar-header">ปฏิทินปีการศึกษา 2567</h4>
           <a href={PDF} download="ปฏิทินปีการศึกษา_2566">
             <button>ดาวน์โหลดเอกสาร</button>
           </a>

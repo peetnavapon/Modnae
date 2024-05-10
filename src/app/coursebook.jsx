@@ -27,10 +27,10 @@ export function CourseBook() {
     <>
       <Navbar />
       <div className="pdf-iframe">
-        <h1>เอกสารหลักสูตร</h1>
+        <h1 className="calendar-header mb-1">เอกสารหลักสูตร</h1>
         <div className="top-iframe">
           <div className="select-button">
-            <h4>ปีการศึกษา</h4>
+            <h4 className="mb-1">ปีการศึกษา</h4>
             <select
               id="academicYear"
               value={selectedYear}

@@ -1,3 +1,6 @@
+.calendar-header {
+  margin-top: 0;
+}
 .pdf-iframe {
   display: flex;
   align-items: center;

@@ -42,7 +42,7 @@ export function Contact() {
   return (
     <>
       <Navbar />
-      <div className="contact-center">
+      <main className="contact-center">
         <div className="contact-content">
           <div className="contact-menu">
             <div className="response-menu">
@@ -131,10 +131,10 @@ export function Contact() {
             </div>
           </div>
           <div className="contact-detail">
-            <div>{content}</div>
+            <div className="text-wrap">{content}</div>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

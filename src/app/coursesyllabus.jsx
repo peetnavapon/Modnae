@@ -6,25 +6,27 @@ export function CourseSyllabus() {
   return (
     <>
       <Navbar />
-      <div className="allcontent">
-        <div className="row">
-          <Link to="/peeone">
-            <div className="column-pee pee-one"></div>{" "}
-          </Link>
-          <Link to="/peetwo">
-            <div className="column-pee pee-two"></div>{" "}
-          </Link>
-        </div>
+      <main className="allcontent-course-course">
+        <div className="course-menu">
+          <div className="row">
+            <Link to="/peeone">
+              <div className="column-pee pee-one"></div>{" "}
+            </Link>
+            <Link to="/peetwo">
+              <div className="column-pee pee-two"></div>{" "}
+            </Link>
+          </div>
 
-        <div className="row">
-          <Link to="/peethree">
-            <div className="column-pee pee-three"></div>
-          </Link>{" "}
-          <Link to="/peefour">
-            <div className="column-pee pee-four"></div>{" "}
-          </Link>
+          <div className="row">
+            <Link to="/peethree">
+              <div className="column-pee pee-three"></div>
+            </Link>{" "}
+            <Link to="/peefour">
+              <div className="column-pee pee-four"></div>{" "}
+            </Link>
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

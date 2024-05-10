@@ -17,7 +17,7 @@ app.use(
 app.use("/",Topic)
 app.use("/",WriteReview)
 app.use("/",ReadReview)
-app
+
 // app.get('/',(req,res)=> res.send(`Hello world`))
 mongoose.connect(
   "mongodb+srv://modnoy:modnaetuanoy@modnae.olhb5sg.mongodb.net/modnaeDB"

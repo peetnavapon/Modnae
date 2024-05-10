@@ -19,7 +19,7 @@ import { Topic } from "./app/topic.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <MenuDocument />,
   },
   {
     path: "writereview",

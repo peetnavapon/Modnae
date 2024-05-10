@@ -19,7 +19,7 @@
 @media screen and (max-width: 850px) {
   .select-button {
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     justify-content: center;
   }
   .select-button select {

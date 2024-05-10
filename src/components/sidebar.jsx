@@ -16,7 +16,7 @@ function toggleSidenav() {
 function closeMenuOnResize() {
   const sidenav = document.getElementById("sidenav");
   const hideBtn = document.getElementById("hide-btn");
-  if (window.innerWidth > 480) {
+  if (window.innerWidth > 720) {
     sidenav.style.display = "flex";
     hideBtn.style.display = "none";
   } else {
@@ -210,7 +210,7 @@ export function Sidenav({ onSelectSubject }) {
   ];
   const allLNG = [
     {
-      title: "กลุ่มวิชาภาาาและการสื่อสาร",
+      title: "กลุ่มวิชาภาษาและการสื่อสาร",
       list: [
         "LNG 120 General English",
         "LNG 220 Academic English",
@@ -255,7 +255,7 @@ export function Sidenav({ onSelectSubject }) {
     <>
       <nav className="sidebar" id="sidebar">
         <div className="side-w-btn">
-          <main className="sidenav " id="sidenav">
+          <main className="sidenav " id="sidenav" style={{ display: "flex" }}>
             <div className="wrap">
               <div className="search">
                 <input
@@ -357,6 +357,34 @@ export function Sidenav({ onSelectSubject }) {
                 </li>
                 <li className="categories">
                   <i className="fa "></i>
+                  MTH
+                  <ul className="hidden choice-wrapper">
+                    {allMTH.map((item, index) => (
+                      <li
+                        key={index}
+                        title={item.title}
+                        className="subject-categories"
+                        onClick={() => toggleButton(index)}
+                      >
+                        {item.title}
+                        {opened[index] && (
+                          <ul className="sub-hidden">
+                            {item.list.map((subject, subIndex) => (
+                              <li
+                                key={`${index}-${subIndex}`}
+                                onClick={() => handleItemClick(subject)}
+                              >
+                                {subject}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li className="categories">
+                  <i className="fa "></i>
                   NST
                   <ul className="hidden choice-wrapper">
                     {allNST.map((item, index) => (
@@ -414,8 +442,12 @@ export function Sidenav({ onSelectSubject }) {
               </ul>
             </div>
           </main>
-          {}
-          <button onClick={toggleSidenav} id="hide-btn" className="hide-btn">
+          <button
+            onClick={toggleSidenav}
+            id="hide-btn"
+            className="hide-btn"
+            style={{ display: "none" }}
+          >
             <IoChevronForwardSharp />
           </button>
         </div>
