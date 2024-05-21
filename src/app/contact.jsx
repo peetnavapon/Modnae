@@ -11,6 +11,7 @@ import { Health } from "../components/health";
 import { Office } from "../components/office";
 import { Sinfo } from "../components/sinfo";
 import { Faculty } from "../components/faculty";
+import { Activity } from "../components/activity";
 
 export function Contact() {
   const [activeItem, setActiveItem] = useState(0);
@@ -36,6 +37,8 @@ export function Contact() {
       setContent(Faculty);
     } else if (showcontent == 6) {
       setContent(Health);
+    } else if (showcontent == 7) {
+      setContent(Activity);
     }
   };
 
@@ -124,6 +127,19 @@ export function Contact() {
                 onItemClick={() => handleItemClick(6)}
               />
               {activeItem === 6 && (
+                <div className="hide-content">
+                  <div>{content}</div>
+                </div>
+              )}
+            </div>
+
+            <div className="response-menu">
+              <SubContact
+                initialText={"สำนักงานกิจการนักศึกษา"}
+                isActive={activeItem === 7}
+                onItemClick={() => handleItemClick(7)}
+              />
+              {activeItem === 4 && (
                 <div className="hide-content">
                   <div>{content}</div>
                 </div>
