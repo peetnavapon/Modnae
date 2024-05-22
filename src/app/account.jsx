@@ -57,21 +57,21 @@ export const Account = () => {
           <div className="flex-col right-info">
             <div className="right-info-wrapper">
               <h3>ตั้งค่าบัญชี</h3>
-              <div className="row gap-5">
-                <div className="flex-col">
+              <div className="row gap-5 text-field">
+                <div className="flex-col w-full">
                   <label>ชื่อจริง</label>
                   <p className="text-info">{user.firstname}</p>
                 </div>
-                <div className="flex-col">
+                <div className="flex-col  w-full">
                   <label>นามสกุล</label>
                   <p className="text-info">{user.lastname}</p>
                 </div>
               </div>
-              <div className="flex-col w-5">
+              <div className="flex-col text-field">
                 <label>อีเมล</label>
-                <p className="text-info">{user.email}</p>
+                <p className="text-info ">{user.email}</p>
               </div>
-              <div className="flex-col w-5">
+              <div className="flex-col text-field">
                 <label>รหัสผ่านเก่า</label>
                 <input
                   type="password"
@@ -79,7 +79,7 @@ export const Account = () => {
                   className="text-info-input"
                 />
               </div>
-              <div className="flex-col w-5">
+              <div className="flex-col text-field">
                 <label>รหัสผ่านใหม่</label>
                 <input
                   type="password"
@@ -87,7 +87,7 @@ export const Account = () => {
                   className="text-info-input"
                 />
               </div>
-              <div className="flex-col w-5">
+              <div className="flex-col text-field">
                 <label>ยืนยันรหัสผ่าน</label>
                 <input
                   type="password"
