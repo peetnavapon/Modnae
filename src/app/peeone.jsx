@@ -23,6 +23,10 @@ export function PeeOne() {
                   initialText="CSS111 Exploring Computer Science"
                 />
                 <Subject
+                  initialLink="https://drive.google.com/file/d/1gd4vl6KF6wz_xWz_543-YPZYUMsv3E2w/view?usp=sharing"
+                  initialText="CSS 112 Computer Programming"
+                />
+                <Subject
                   initialLink="https://drive.google.com/file/d/1kRRdHUAWW5Kr7i6mIkl8vxUvmKTEOKvc/view?usp=sharing"
                   initialText="CSS 113 Discrete Mathematics for Computer Scientists"
                 />
