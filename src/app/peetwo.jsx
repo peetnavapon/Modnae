@@ -33,10 +33,6 @@ export function PeeTwo() {
                   initialLink="https://drive.google.com/file/d/1awJyKxr1Aq1kMQC63lO3cqb_hZ76zE2i/view?usp=sharing"
                   initialText="STD 214 Probability and Statics"
                 />
-                <Subject
-                  initialLink="https://drive.google.com/file/d/1oJg3ojzaPNjEKmImEbCUtTJPesGiwpyg/view?usp=sharing"
-                  initialText="CSS 234 Web Programming II"
-                />
               </div>
             </div>
           </div>

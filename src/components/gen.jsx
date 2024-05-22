@@ -8,16 +8,14 @@ export function Gen() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://gened.kmutt.ac.th/" target="_blank">
-            https://gened.kmutt.ac.th/
-          </a>
+          <a href="https://gened.kmutt.ac.th/">https://gened.kmutt.ac.th/</a>
         </li>
       </p>
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/genKMUTTofficial" target="_blank">
-            LGEN_KMUTT
+          <a href="https://www.facebook.com/genKMUTTofficial">
+            https://www.facebook.com/genKMUTTofficial
           </a>
         </li>
       </p>
