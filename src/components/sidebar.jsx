@@ -279,7 +279,13 @@ export function Sidenav({ onSelectSubject }) {
       console.error(error);
     });
 }
+document.addEventListener('click', (event) => {
+  const mainElement = document.getElementById('sidenav');
 
+  if (!mainElement.contains(event.target)) {
+    setView('default');
+  }
+});
 
   return (
     <>
@@ -475,13 +481,20 @@ export function Sidenav({ onSelectSubject }) {
               </ul>
             </div>
             ):(
-              <div className="choice-wrapperNew">
-                {resultSearch.map((resultSearch, index) => {
-                  return(
-                    <li className="searchSubject"
-                    onClick={() => handleItemClick(resultSearch.name)}
-                    key={index}>{resultSearch.name}</li>
-                  )})}
+              <div className={resultSearch && resultSearch.length > 0 ?"choice-wrapperNew":"notFound"}>
+                {resultSearch && resultSearch.length > 0 ? (
+                  resultSearch.map((resultSearch, index) => (
+                    <li
+                      className="searchSubject"
+                      onClick={() => handleItemClick(resultSearch.name)}
+                      key={index}
+                    >
+                      {resultSearch.name}
+                    </li>
+                  ))
+                ) : (
+                  <p>ไม่พบวิชาที่ค้นหา</p>
+                )}
               </div>
             )}
             

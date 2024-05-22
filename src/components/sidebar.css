@@ -175,6 +175,10 @@
   overflow-y: scroll;
   scrollbar-color: #3d6546 #81bfa1;
 }
+.notFound{
+  text-align: center;
+}
+
 
 @media screen and (max-width: 720px) {
   .sidebar {
