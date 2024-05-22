@@ -11,9 +11,7 @@ export function University() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://www.kmutt.ac.th/" target="_blank">
-            https://www.kmutt.ac.th/
-          </a>
+          <a href="https://www.kmutt.ac.th/">https://www.kmutt.ac.th/</a>{" "}
         </li>
       </p>
     </>
