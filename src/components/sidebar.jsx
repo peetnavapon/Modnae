@@ -25,6 +25,8 @@ function closeMenuOnResize() {
   }
 }
 
+
+
 // เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
 window.addEventListener("load", closeMenuOnResize);
 
