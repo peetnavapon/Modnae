@@ -8,14 +8,16 @@ export function Health() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://hcu.kmutt.ac.th/th">https://hcu.kmutt.ac.th/th</a>
+          <a href="https://hcu.kmutt.ac.th/th" target="_blank">
+            https://hcu.kmutt.ac.th/th
+          </a>
         </li>
       </p>
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/HCU.KMUTT">
-            https://www.facebook.com/HCU.KMUTT
+          <a href="https://www.facebook.com/HCU.KMUTT" target="_blank">
+            KMUTT Health Care Unit
           </a>
         </li>
       </p>
@@ -23,8 +25,11 @@ export function Health() {
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/profile.php?id=100083097134271">
-            https://www.facebook.com/profile.php?id=100083097134271
+          <a
+            href="https://www.facebook.com/profile.php?id=100083097134271"
+            target="_blank"
+          >
+            KMUTT CAPS: บริการปรึกษาและจิตวิทยา มจธ.
           </a>
         </li>
       </p>

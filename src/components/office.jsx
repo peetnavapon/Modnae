@@ -8,14 +8,16 @@ export function Office() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://regis.kmutt.ac.th/">https://regis.kmutt.ac.th/</a>
+          <a href="https://regis.kmutt.ac.th/" target="_blank">
+            https://regis.kmutt.ac.th/
+          </a>
         </li>
       </p>
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/REGISTKMUTT">
-            https://www.facebook.com/REGISTKMUTT
+          <a href="https://www.facebook.com/REGISTKMUTT" target="_blank">
+            สำนักงานทะเบียนนักศึกษา มจธ.
           </a>
         </li>
       </p>
@@ -23,14 +25,16 @@ export function Office() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://sao.kmutt.ac.th/th/">https://sao.kmutt.ac.th/th/</a>
+          <a href="https://sao.kmutt.ac.th/th/" target="_blank">
+            https://sao.kmutt.ac.th/th/
+          </a>
         </li>
       </p>
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/sao.kmutt">
-            https://www.facebook.com/sao.kmutt
+          <a href="https://www.facebook.com/sao.kmutt" target="_blank">
+            สำนักงานกิจการนักศึกษา มจธ.
           </a>
         </li>
       </p>
@@ -38,14 +42,16 @@ export function Office() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://www.kmutt.ac.th/sfa">https://www.kmutt.ac.th/sfa</a>
+          <a href="https://www.kmutt.ac.th/sfa" target="_blank">
+            https://www.kmutt.ac.th/sfa
+          </a>
         </li>
       </p>
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/SFAKMUTT">
-            https://www.facebook.com/SFAKMUTT
+          <a href="https://www.facebook.com/SFAKMUTT" target="_blank">
+            ทุนการศึกษา มจธ.
           </a>
         </li>
       </p>
@@ -53,8 +59,8 @@ export function Office() {
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/kmuttstdunion">
-            https://www.facebook.com/kmuttstdunion
+          <a href="https://www.facebook.com/kmuttstdunion" target="_blank">
+            องค์การนักศึกษา มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
           </a>
         </li>
       </p>

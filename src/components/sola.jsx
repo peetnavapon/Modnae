@@ -8,7 +8,7 @@ export function Sola() {
       <p>
         <li>
           เว็บไซต์ :
-          <a href="https://sola.pr.kmutt.ac.th/homesola/">
+          <a href="https://sola.pr.kmutt.ac.th/homesola/" target="_blank">
             https://sola.pr.kmutt.ac.th/homesola/
           </a>
         </li>
@@ -16,8 +16,11 @@ export function Sola() {
       <p>
         <li>
           Facebook :
-          <a href="https://www.facebook.com/profile.php?id=61552009062527">
-            https://www.facebook.com/profile.php?id=61552009062527
+          <a
+            href="https://www.facebook.com/profile.php?id=61552009062527"
+            target="_blank"
+          >
+            LNG courses_KMUTT
           </a>
         </li>
       </p>
