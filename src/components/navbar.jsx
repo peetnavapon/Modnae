@@ -22,7 +22,7 @@ function hamMenu() {
 function closeMenuOnResize() {
   const menu = document.querySelector(".navbar-nav");
   const ham = document.querySelector(".navbar-toggle");
-  if (window.innerWidth > 480) {
+  if (window.innerWidth > 650) {
     menu.style.display = "flex";
     ham.classList.add("active");
   } else {

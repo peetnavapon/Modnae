@@ -1,19 +1,25 @@
 html{
     margin:0;
+    
 }
 body{
     margin: 0;
 }
 .loginCenter{
     display: flex;
-    justify-content: center;
-    height: 90%;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     background-color: #FFFBF1;
+    align-items: center;
+
 }
 .loginCenterRegister{
     display: flex;
-    justify-content: center;
-    height: auto;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
     background-color: #FFFBF1;
 }
 .loginContent{
@@ -32,10 +38,7 @@ body{
     display: flex;
     border-radius: 10px;
 }
-.loginPicture{
-    display: flex;
-    width: 100%;
-}
+
 .loginForm{
     display: flex;
     flex-direction: column;
@@ -145,11 +148,22 @@ body{
     width: 150px;
     margin-left: 30px;
 }
-
-
-
-@media screen and (max-width:480px) {
+.loginPicture img{
+    width: 100%;
+    object-fit: cover;
+}
+.registerPicture img{
+    width: 120%;
+    object-fit: cover;
+}
+@media screen and (max-width:767px) {
     .loginPicture{
         display: none;
+    }
+    .loginCenter{
+        background-color: white;
+    }
+    .loginCenterRegister{
+        background-color: white;
     }
 }

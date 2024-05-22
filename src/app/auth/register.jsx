@@ -4,6 +4,7 @@ import axios from "axios";
 import { Navbar } from "../../components/navbar";
 import "./login.css"
 import { Link } from "react-router-dom";
+import registerPicture from '../../assets/reg.png'
 
 
 export function Register() {
@@ -63,8 +64,9 @@ export function Register() {
   };
   return (
     <>
-      <Navbar/>
+
       <div className="loginCenterRegister">
+      <Navbar/>
         <div className="loginContentRegister">
 
           <div className="loginMain">
@@ -119,7 +121,9 @@ export function Register() {
                 </form>
             </div>
 
-            <div className="loginPicture"></div>
+            <div className="loginPicture">
+              <img src={registerPicture} alt="" />
+            </div>
             
           </div>
       </div>

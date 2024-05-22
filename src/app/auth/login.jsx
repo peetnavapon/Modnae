@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/navbar";
 import "./login.css"
+import  loginPicture  from '../../assets/login.png'
 
 export function Login() {
   const dispatch = useDispatch();
@@ -59,11 +60,12 @@ export function Login() {
   };
   return (
     <>
-    <Navbar/>
+
     <div className="loginCenter">
+    <Navbar/>
       <div className="loginContent">
         <div className="loginPicture">
-
+          <img src={loginPicture} alt="" />
         </div>
 
         <div className="loginMain">
