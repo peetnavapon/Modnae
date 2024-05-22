@@ -3,10 +3,8 @@
   display: flex;
   align-items: center;
   height: 60px;
-  padding: 0px 10px;
   justify-content: space-between;
   z-index: 1;
-
   top: 0;
   width: 100%;
 }
@@ -63,6 +61,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  margin-left: 10px;
 }
 .logo:hover {
   color: #a63d17;
@@ -81,7 +80,7 @@
 }
 .w-3-h-3 {
   width: 1rem;
-  h: 1rem;
+  height: 1rem;
   padding-right: 2px;
 }
 @media screen and (max-width: 480px) {
@@ -95,9 +94,9 @@
   }
   .first {
     width: 95%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0px 15px 15px 15px;
     margin-top: 15px;
+    border-bottom: 2px solid #691e01;
   }
   .navbar {
     flex-direction: column;
@@ -111,10 +110,11 @@
   }
   .nav-item {
     width: 100%;
+
   }
   .nav-link {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
   }
   .navbar-nav.active {
     display: flex !important;
