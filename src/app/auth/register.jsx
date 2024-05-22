@@ -33,11 +33,14 @@ export function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value.password != value.Cpassword) {
-      setLog("รหัสผ่านไม่ตรงกัน");
-    }
-    if (!isKmutt) {
+    if (!value.username || !value.firstname || !value.lastname) {
+      setLog("กรุณากรอกข้อมูลให้ครบถ้วน");
+    } else if (!isKmutt) {
       setLog("อีเมลของท่านต้องลงท้ายด้วย @mail.kmutt.ac.th");
+    } else if (!value.password) {
+      setLog("กรุณาตั้งรหัสผ่าน");
+    } else if (value.password != value.Cpassword) {
+      setLog("รหัสผ่านไม่ตรงกัน");
     } else {
       axios
         .post("http://localhost:5000/api/register", value)
