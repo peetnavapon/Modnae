@@ -6,10 +6,11 @@
   padding: 0px 10px;
   justify-content: space-between;
   z-index: 1;
-  position: relative;
+
   top: 0;
   width: 100%;
 }
+
 .navbar-toggle {
   display: none;
   cursor: pointer;
@@ -50,6 +51,10 @@
 .nav-link:hover {
   background-color: #385f4c;
   color: #fff;
+  .nav-icon {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+  }
 }
 .logo {
   color: #a63d17;
@@ -70,7 +75,15 @@
 .acc {
   background-color: #4caf50;
 }
-
+.profile-btn {
+  border: none;
+  background-color: transparent;
+}
+.w-3-h-3 {
+  width: 1rem;
+  h: 1rem;
+  padding-right: 2px;
+}
 @media screen and (max-width: 480px) {
   .navbar-nav {
     display: none;

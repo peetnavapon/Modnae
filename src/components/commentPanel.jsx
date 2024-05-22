@@ -6,18 +6,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaCommentAlt } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
-function toggleComments() {
-  const comments = document.getElementById("comment");
-  if (comments.style.display === "none") {
-    comments.style.display = "block";
-  } else {
-    comments.style.display = "none";
-  }
-}
+import { useSelector } from "react-redux";
+const getUser = (state) => state.user;
 export function CommentPanel() {
+  const user = useSelector(getUser);
   const [topics, setTopics] = useState([]);
   const [opened, setOpened] = useState({});
   const [comments, setComments] = useState([]);
+  console.log("user", user);
   const toggleButton = (index) => {
     setOpened((prevOpened) => ({
       ...prevOpened,
@@ -30,12 +26,12 @@ export function CommentPanel() {
       try {
         const response = await axios.get("http://localhost:5000/ReadTopic");
         const reversedTopics = response.data.reverse();
-        // Assuming comments are nested within topics
         const topicsWithComments = reversedTopics.map((topic) => ({
           ...topic,
-          comments: topic.comments || [], // Set empty array for comments if not present
-          totalComments: topic.comments ? topic.comments.length : 0, // Calculate total comments
+          comments: topic.comments || [],
+          totalComments: topic.comments ? topic.comments.length : 0,
         }));
+
         setTopics(topicsWithComments);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -57,7 +53,9 @@ export function CommentPanel() {
     try {
       const response = await axios.post(
         `http://localhost:5000/Topic/${topicId}/comment`,
+
         {
+          email: user.email,
           content: commentContent,
         }
       );
@@ -81,14 +79,30 @@ export function CommentPanel() {
                   <div className="flex-row center ">
                     <img src={modnoi} className="modProfile" />
                     <p className="ml-05">มดสงสัย</p>
+                    <p className="text-sm text-gray ">
+                      •{" "}
+                      {new Date(topic.createdAt).toLocaleDateString(
+                        "th-TH",
+                        thaiDateTimeOptions
+                      )}
+                    </p>
                   </div>
-
-                  <p className=" sm-text">
-                    {new Date(topic.createdAt).toLocaleDateString(
-                      "th-TH",
-                      thaiDateTimeOptions
-                    )}
-                  </p>
+                  {/* <button className="ellipsis">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-3-h-3"
+                    >
+                      <path d="M3 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM8.5 10a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM15.5 8.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" />
+                    </svg>
+                  </button> */}
+                  {/* <div className="ellipsis-setting">
+                    <ul>
+                      <li>แก้ไข</li>
+                      <li>ลบกระทู้</li>
+                    </ul>
+                  </div> */}
                 </div>
                 <div>
                   <h3 className="topic-question">{topic.title}</h3>
@@ -118,7 +132,7 @@ export function CommentPanel() {
                                 </p>
                               </div>
                             </div>
-                            <p className="sm-text">
+                            <p className="text-sm text-gray">
                               {new Date(comment.createdAt).toLocaleDateString(
                                 "th-TH",
                                 thaiDateTimeOptions
@@ -129,7 +143,6 @@ export function CommentPanel() {
                         </div>
                       </div>
                     ))}
-
                     <form
                       onSubmit={(e) => {
                         const commentContent = e.target.comment.value;

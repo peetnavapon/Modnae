@@ -1,10 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const morgan = require("morgan");
+require("dotenv").config();
+const bodyParser = require("body-parser")
+const {readirSync, readdirSync} = require("fs")
 const app = express();
 const Topic = require('./routes/topicRoute');
 const WriteReview = require('./routes/writeReviewRoute')
 const ReadReview = require('./routes/readReviewRoute')
+
 app.use(express.json());
 app.use(
   cors({
@@ -14,11 +19,19 @@ app.use(
   })
 );
 
+//middleware
+app.use(morgan("dev"))
+app.use(bodyParser.json({limit:"20mb"}))
+app.use(cors()) //fetch api
+
+//Route
+
 app.use("/",Topic)
 app.use("/",WriteReview)
 app.use("/",ReadReview)
+readdirSync("./routes").map((r)=>app.use("/api",require("./routes/"+r)))
 
-// app.get('/',(req,res)=> res.send(`Hello world`))
+
 mongoose.connect(
   "mongodb+srv://modnoy:modnaetuanoy@modnae.olhb5sg.mongodb.net/modnaeDB"
 );
@@ -28,7 +41,7 @@ connection.once("open", () => {
     console.log("MongoDB database connected.");
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

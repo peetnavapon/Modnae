@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../app/topic.css";
-
+import { useSelector } from "react-redux";
+const getUser = (state) => state.user;
 function toggleTopic() {
   const topicBtn = document.getElementById("topic");
   const hideBtn = document.getElementById("hideBtn");
@@ -15,10 +16,11 @@ function toggleTopic() {
   }
 }
 export function TopicPanel() {
+  const user = useSelector(getUser);
   const [count, setCount] = useState(0);
   const [input, setInput] = useState({
     title: "",
-    descriptions: "",
+    description: "",
   });
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -36,8 +38,9 @@ export function TopicPanel() {
 
   function handleClick(event) {
     const newPost = {
+      email: user.email,
       title: input.title,
-      descriptions: input.descriptions,
+      descriptions: input.description,
     };
     console.log(newPost);
     axios
@@ -91,8 +94,8 @@ export function TopicPanel() {
                 type="text"
                 placeholder="รายละเอียดคำถามของคุณ"
                 className="textarea-field"
-                name="descriptions"
-                value={input.descriptions}
+                name="description"
+                value={input.description}
                 required
                 onChange={handleChange}
               />

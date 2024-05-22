@@ -1,12 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/navbar";
 import { Sidenav } from "../components/sidebar";
 import "./writereview.css";
 import "../components/sendBtn.css";
 import axios from "axios";
-
+import { useSelector } from "react-redux";
+const getUser = (state) => state.user;
 export function WriteReview() {
+  const user = useSelector(getUser);
+  const navigate = useNavigate();
   const [selectedSubject, setSelectedSubject] = useState("");
   const [input, setInput] = useState({
     subject: "",
@@ -34,6 +38,7 @@ export function WriteReview() {
 
   function handleClick(event) {
     const newReview = {
+      email: user.email,
       subject: input.subject,
       year: input.year,
       teacher: input.teacher,
