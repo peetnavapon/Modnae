@@ -45,8 +45,13 @@ export function Login() {
         localStorage.setItem("token", response.data.token);
         roleBaseRedirect(response.data.payload.user.role);
       })
+
       .catch((error) => {
-        setLog("รหัสผ่านหรืออีเมลไม่ถูกต้อง");
+        if (error.response && error.response.data === "Password invalid") {
+          setLog("รหัสผ่านไม่ถูกต้อง");
+        } else {
+          setLog("กรุณายืนยันตัวตน");
+        }
       });
   };
   return (

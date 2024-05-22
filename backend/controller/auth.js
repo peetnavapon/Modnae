@@ -73,7 +73,7 @@ exports.login = async (req,res)=>{
                 if(err) throw err;
                 res.json({token,payload})
             })
-        }else if(user && user.verify === false){
+        }else if(user && !user.verify){
             let tokens = await Token.findOne({userId: user._id});
                 if(!tokens){
                     const tokens = await new Token({
@@ -85,7 +85,7 @@ exports.login = async (req,res)=>{
                 }
                return res.send("An Email send to your account");
         }else{
-        return res.status(400).send("User not found")
+        return res.status(400).send(data,"User not found")
         }
 
     }catch(err){
