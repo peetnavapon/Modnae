@@ -9,6 +9,7 @@ const app = express();
 const Topic = require('./routes/topicRoute');
 const WriteReview = require('./routes/writeReviewRoute')
 const ReadReview = require('./routes/readReviewRoute')
+const Search = require('./routes/searchReviewRoute')
 
 app.use(express.json());
 app.use(
@@ -29,6 +30,7 @@ app.use(cors()) //fetch api
 app.use("/",Topic)
 app.use("/",WriteReview)
 app.use("/",ReadReview)
+app.use("/",Search)
 readdirSync("./routes").map((r)=>app.use("/api",require("./routes/"+r)))
 
 

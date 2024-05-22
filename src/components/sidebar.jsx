@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import search from "../assets/search-icon.png";
 import { IoChevronForwardSharp } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
+import axios from "axios";
 
 function toggleSidenav() {
   const sidenav = document.getElementById("sidenav");
@@ -252,6 +253,33 @@ export function Sidenav({ onSelectSubject }) {
       list: ["STD 214 Probability and Statics"],
     },
   ];
+  const [view,setView] =useState('default')
+  const [searchSubject,setSearchSubject] = useState("")
+  const [resultSearch,setResultSearch] = useState([])
+
+  const handleSearchClick = () => {
+    setView('search');
+    console.log(searchSubject)
+    handleSearch()
+  };
+
+  const handleChangeSearch = (event) => {
+    setSearchSubject(event.target.value);
+  };
+
+  const handleSearch = () => {
+    axios.post("http://localhost:5000/Search", {searchSubject})
+    .then((response) => {
+
+      setResultSearch(response.data);
+      console.log(resultSearch);
+
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 
   return (
     <>
@@ -265,13 +293,16 @@ export function Sidenav({ onSelectSubject }) {
                   className="searchTerm"
                   placeholder="ค้นหาวิชาเรียน"
                   aria-label="Search"
+                  value={searchSubject}
+                  onChange={handleChangeSearch}
                 />
-                <button type="submit" className="searchButton">
+                <button type="submit" onClick={handleSearchClick} className="searchButton">
                   <img src={search}></img>
                 </button>
               </div>
             </div>
-            <div className="btn-wrapper">
+            {view === 'default' ? (
+              <div className="btn-wrapper">
               <ul className="main-buttons">
                 <li className="categories">
                   <i className="fa "></i>
@@ -443,6 +474,17 @@ export function Sidenav({ onSelectSubject }) {
                 </li>
               </ul>
             </div>
+            ):(
+              <div className="choice-wrapperNew">
+                {resultSearch.map((resultSearch, index) => {
+                  return(
+                    <li className="searchSubject"
+                    onClick={() => handleItemClick(resultSearch.name)}
+                    key={index}>{resultSearch.name}</li>
+                  )})}
+              </div>
+            )}
+            
           </main>
           <button
             onClick={toggleSidenav}

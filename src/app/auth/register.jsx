@@ -63,7 +63,6 @@ export function Register() {
   return (
     <>
       <div className="loginCenterRegister">
-      <Navbar/>
         <div className="loginContentRegister">
           <div className="loginMain">
             <h1 className="headRegister">สร้างบัญชี</h1>

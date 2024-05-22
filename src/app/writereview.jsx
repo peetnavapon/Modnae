@@ -46,9 +46,9 @@ export function WriteReview() {
     };
     console.log(newReview);
     axios
-      .post("http://localhost:5000/WriteReview", newReview)
+      .post("http://localhost:5000/WriteReview", {newReview})
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);

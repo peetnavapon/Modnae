@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/navbar";
 import "./login.css"
-import  loginPicture  from '../../assets/login.png'
+import  loginimg  from '../../assets/login.png'
 
 export function Login() {
   const dispatch = useDispatch();
