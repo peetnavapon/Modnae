@@ -97,7 +97,7 @@ export const Account = () => {
               </div>
               <div className="pt-02 res-center pb-03">
                 <button className="send-btn flex" type="submit" name="submit">
-                  ยืนยัน
+                  บันทึก
                 </button>
               </div>
             </div>

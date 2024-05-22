@@ -1,152 +1,171 @@
-html{
-    margin:0;
-    
+html {
+  margin: 0;
 }
-body{
-    margin: 0;
+body {
+  margin: 0;
 }
-.loginCenter{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    background-color: #FFFBF1;
-    align-items: center;
-
+.loginCenter {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: #fffbf1;
 }
-.loginCenterRegister{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FFFBF1;
+.loginCenterRegister {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: #fffbf1;
 }
-.loginContent{
-    background-color: white;
-    margin-top: 50px;
-    width: 900px;
-    height: 500px;
-    display: flex;
-    border-radius: 10px;
+.loginContent {
+  background-color: white;
+  margin-top: 100px;
+  width: 900px;
+  height: 500px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.loginContentRegister{
-    background-color: white;
-    margin-top: 50px;
-    width: 900px;
-    height: 600px;
-    display: flex;
-    border-radius: 10px;
+.loginContentRegister {
+  background-color: white;
+  margin-top: 50px;
+  width: 900px;
+  height: 600px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
-.loginForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    justify-content: center;
+.loginPicture {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 100%;
+  height: 100%;
+  background-color: #fff7dc;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
-.headRegister{
-    margin: 40px 240px 40px 0px;
+.loginPicture img {
+  height: 80%;
+  padding-bottom: 3rem;
 }
-.headLogin{
-    margin: 40px 240px 40px 0px;
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  justify-content: center;
 }
-.loginMain{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
+.headRegister {
+  margin: 40px 240px 40px 0px;
 }
-.loginInput{
-    border: none;
-    border-bottom: 2px solid lightgray;
-    outline: none;
-    padding: 10px 40px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    width: 270px;
+.headLogin {
+  margin: 40px 240px 40px 0px;
 }
-.inputName{
-    border: none;
-    border-bottom: 2px solid lightgray;
-    outline: none;
-    padding: 10px 40px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    width: 90px;
+.loginMain {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
-.inputLast{
-    border: none;
-    border-bottom: 2px solid lightgray;
-    outline: none;
-    padding: 10px 0px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    width: 170px;
+.loginInput {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  outline: none;
+  padding: 10px 40px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  width: 270px;
 }
-.inputContainer{
-    position: relative;
-    display: inline-block;
-    margin-bottom: 25px;
-    width: 350px;
+.inputName {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  outline: none;
+  padding: 10px 40px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  width: 90px;
+}
+.inputLast {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  outline: none;
+  padding: 10px 0px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  width: 170px;
+}
+.inputContainer {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+  width: 350px;
 }
 .inputIcon {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    width: 18px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 18px;
 }
-.inputIconUser{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    width: 15px;
+.inputIconUser {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 15px;
 }
-.loginInput:focus,.inputLast:focus,.inputName:focus{
-    border-bottom: 2px solid black;
+.loginInput:focus,
+.inputLast:focus,
+.inputName:focus {
+  border-bottom: 2px solid black;
 }
-.toRegister{
-    color: #1400FF;
+.toRegister {
+  color: #e39926;
+  padding-bottom: 2rem;
 }
-.toRegister:hover{
-    color: #2013ae;
+.toRegister:hover {
+  transition: 1s;
+  text-decoration: underline wavy #e39926;
+  text-underline-offset: 30%;
 }
-.loginButton{
-    color: white;
-    background-color: #ECB96A;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-bottom: 30px;
+.loginButton {
+  color: white;
+  background-color: #ecb96a;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
-.allName{
-    display: flex;
-    width: 350px;
+.loginButton:hover {
+  background-color: #e39926;
+  transition: 0.2s;
 }
-.inputContainerName{
-    display: flex;
-    position: relative;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    width: 150px;
+.allName {
+  display: flex;
+  width: 350px;
 }
-.inputContainerLast{
-    display: flex;
-    position: relative;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    width: 150px;
-    margin-left: 30px;
+.inputContainerName {
+  display: flex;
+  position: relative;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 150px;
+}
+.inputContainerLast {
+  display: flex;
+  position: relative;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  width: 150px;
+  margin-left: 30px;
 }
 .loginPicture img{
     width: 100%;
