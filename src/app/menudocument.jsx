@@ -8,26 +8,28 @@ export function MenuDocument() {
   return (
     <>
       <Navbar />
-      <RateOurWebsite />
-      <main className="allcontent">
+      <main className="allcontent ">
         <div className="doc-menu">
-          <div className="row">
-            <Link to="/coursesyllabus">
-              <div className="column top-left"></div>
-            </Link>
-            <Link to="/coursebook">
-              <div className="column top-right"></div>
-            </Link>
+          <div className="row-wrapper">
+            <div className="row">
+              <Link to="/coursesyllabus">
+                <div className="column top-left"></div>
+              </Link>
+              <Link to="/coursebook">
+                <div className="column top-right"></div>
+              </Link>
+            </div>
+            <div className="row">
+              <Link to="/calendar">
+                <div className="column bot-left"></div>
+              </Link>
+              <Link to="/contact">
+                <div className="column bot-right"></div>
+              </Link>
+            </div>
           </div>
 
-          <div className="row">
-            <Link to="/calendar">
-              <div className="column bot-left"></div>
-            </Link>
-            <Link to="/contact">
-              <div className="column bot-right"></div>
-            </Link>
-          </div>
+          <RateOurWebsite />
         </div>
       </main>
     </>

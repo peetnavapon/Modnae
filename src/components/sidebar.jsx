@@ -12,7 +12,7 @@ window.addEventListener("resize", closeMenuOnResize);
 //เปิดปิด sidebar ตอน responsive
 function toggleSidenav() {
   const sidenav = document.getElementById("sidenav");
-  const hideBtn = document.getElementById("hide-btn");
+
   if (sidenav.style.display === "none") {
     sidenav.style.display = "flex";
   } else {
