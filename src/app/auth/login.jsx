@@ -6,8 +6,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../../components/navbar";
-import "./login.css"
-import  loginimg  from '../../assets/login.png'
+import "./login.css";
+import loginimg from "../../assets/login.png";
 
 export function Login() {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ export function Login() {
                   type="email"
                   name="email"
                   onChange={handleChange}
-                  placeholder="อีเมล"
+                  placeholder="email@mail.kmutt.ac.th"
                 />
               </div>
 

@@ -34,7 +34,8 @@ body {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.loginPicture {
+.loginPicture,
+.registerPicture {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -46,7 +47,9 @@ body {
 }
 .loginPicture img {
   height: 80%;
-  padding-bottom: 3rem;
+}
+.registerPicture img {
+  height: 80%;
 }
 .loginForm {
   display: flex;
@@ -167,14 +170,7 @@ body {
   width: 150px;
   margin-left: 30px;
 }
-.loginPicture img {
-  width: 100%;
-  object-fit: cover;
-}
-.registerPicture img {
-  width: 120%;
-  object-fit: cover;
-}
+
 @media screen and (max-width: 767px) {
   .loginPicture {
     display: none;

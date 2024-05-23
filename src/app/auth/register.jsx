@@ -173,7 +173,7 @@ export function Register() {
             </form>
           </div>
 
-          <div className="loginPicture">
+          <div className="registerPicture">
             <img src={regimg} alt="" />
           </div>
         </div>
