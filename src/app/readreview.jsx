@@ -9,9 +9,9 @@ import ReviewCard from "../components/readReviewCard";
 import axios from "axios";
 const getUser = (state) => ({ ...state.user });
 export function ReadReview() {
+  const user = useSelector(getUser);
   const [selectedSubject, setSelectedSubject] = useState("");
   const [reviews, setReviews] = useState([]);
-  const user = useSelector(getUser);
 
   const handleSelectSubject = (subject) => {
     setSelectedSubject(subject);

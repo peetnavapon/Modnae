@@ -7,7 +7,7 @@ import "./writereview.css";
 import "../components/sendBtn.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
-const getUser = (state) => state.user;
+const getUser = (state) => ({ ...state.user });
 export function WriteReview() {
   const user = useSelector(getUser);
   const navigate = useNavigate();
@@ -37,16 +37,14 @@ export function WriteReview() {
   };
 
   function handleClick(event) {
-    const newReview = {
-      email: user.email,
-      subject: input.subject,
-      year: input.year,
-      teacher: input.teacher,
-      descriptions: input.descriptions,
-    };
-    console.log(newReview);
     axios
-      .post("http://localhost:5000/WriteReview", {newReview})
+      .post("http://localhost:5000/WriteReview", {
+        email: user.email,
+        subject: input.subject,
+        year: input.year,
+        teacher: input.teacher,
+        descriptions: input.descriptions,
+      })
       .then((response) => {
         console.log(response.data);
       })

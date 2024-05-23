@@ -4,7 +4,10 @@ const Topic = require("../models/topicModel");
 const User = require("../models/User");
 
 router.post("/Topic", async (req, res) => {
+ 
   try {
+    
+
     const { email, title, descriptions } = req.body;
     const user = await User.findOne({ email:email });
     const newTopic =  new Topic({

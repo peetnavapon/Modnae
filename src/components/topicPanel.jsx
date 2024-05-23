@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../app/topic.css";
 import { useSelector } from "react-redux";
-const getUser = (state) => state.user;
+const getUser = (state) => ({ ...state.user });
 function toggleTopic() {
   const topicBtn = document.getElementById("topic");
   const hideBtn = document.getElementById("hideBtn");
@@ -15,13 +15,14 @@ function toggleTopic() {
     hideBtn.style.display = "block";
   }
 }
-export function TopicPanel() {
+export const TopicPanel = () => {
   const user = useSelector(getUser);
   const [count, setCount] = useState(0);
   const [input, setInput] = useState({
     title: "",
     description: "",
   });
+  console.log(user);
   function handleChange(evt) {
     const { name, value } = evt.target;
 
@@ -37,14 +38,12 @@ export function TopicPanel() {
   }
 
   function handleClick(event) {
-    const newPost = {
-      email: user.email,
-      title: input.title,
-      descriptions: input.description,
-    };
-    console.log(newPost);
     axios
-      .post("http://localhost:5000/Topic", newPost)
+      .post("http://localhost:5000/Topic", {
+        email: user.email,
+        title: input.title,
+        descriptions: input.description,
+      })
       .then((response) => {
         console.log(response);
       })
@@ -115,4 +114,4 @@ export function TopicPanel() {
       </div>
     </>
   );
-}
+};

@@ -67,14 +67,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MenuDocument />} />
-        <Route
-          path="/writereview"
-          element={
-            <UserRoute>
-              <WriteReview />
-            </UserRoute>
-          }
-        />
+
         <Route
           path="/account"
           element={
@@ -83,14 +76,7 @@ function App() {
             </UserRoute>
           }
         />
-        <Route
-          path="/topic"
-          element={
-            <UserRoute>
-              <Topic />
-            </UserRoute>
-          }
-        />
+        <Route path="/writereview" element={<WriteReview />} />
         <Route path="/readreview" element={<ReadReview />} />
         <Route path="/menudocument" element={<MenuDocument />} />
         <Route path="/contact" element={<Contact />} />
