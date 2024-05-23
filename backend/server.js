@@ -1,3 +1,4 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -36,7 +37,8 @@ readdirSync("./routes").map((r)=>app.use("/api",require("./routes/"+r)))
 
 
 mongoose.connect(
-  "mongodb+srv://modnoy:modnaetuanoy@modnae.olhb5sg.mongodb.net/modnaeDB"
+  
+ " mongodb+srv://modnoy:modnaetuanoy@modnae.olhb5sg.mongodb.net/?retryWrites=true&w=majority&appName=Modnae"
 );
 
 const connection = mongoose.connection;
