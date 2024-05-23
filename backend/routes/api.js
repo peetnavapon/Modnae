@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router()
+const multer = require('multer')
 
 //controller
-const {register,login,listUser,editUser,deleteUser,currentUser,verifyUser} = require("../controller/auth")
+const {register,login,listUser,updateUser,deleteUser,currentUser,verifyUser} = require("../controller/auth")
 //Middleware
 const {auth,adminCheck} = require("../middleware/auth");
 
@@ -34,10 +35,11 @@ router.post('/current-user',auth,currentUser)
 //Access Private
 router.post('/current-admin',auth,adminCheck,currentUser)
 
-//Endpoints http://localhost:5000/api/auth
-//Method PUT
+
+//Endpoints http://localhost:5000/api/updateUser
+//Method POST
 //Access Public
-router.put('/auth',editUser)
+router.post('/updateUser',updateUser)
 
 //Endpoints http://localhost:5000/api/auth
 //Method DELETE

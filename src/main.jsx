@@ -26,8 +26,8 @@ import { Login } from "./app/auth/login.jsx";
 import { Register } from "./app/auth/register.jsx";
 import { EmailVerify } from "./app/auth/verifyEmail.jsx";
 import { Account } from "./app/account.jsx";
-//Admin
-import { Dashboard } from "./app/admin/Dashboard.jsx";
+import { Googleform } from "./app/ggform.jsx";
+
 //Redux
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -38,7 +38,6 @@ import { useDispatch } from "react-redux";
 import { currentUser } from "./app/function/auth.js";
 //route
 import { UserRoute } from "./routes/UserRoute.jsx";
-import { AdminRoute } from "./routes/AdminRoute.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -96,6 +95,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/account" element={<Account />} />
       <Route path="/users/:id/verify/:tokens" element={<EmailVerify />} />
+      <Route path="/ggform" element={<Googleform />} />
     </Routes>
   );
 }

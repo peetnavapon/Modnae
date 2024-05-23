@@ -10,7 +10,7 @@ const Topic = require('./routes/topicRoute');
 const WriteReview = require('./routes/writeReviewRoute')
 const ReadReview = require('./routes/readReviewRoute')
 const Search = require('./routes/searchReviewRoute')
-
+const multer = require('multer')
 app.use(express.json());
 app.use(
   cors({
@@ -32,6 +32,7 @@ app.use("/",WriteReview)
 app.use("/",ReadReview)
 app.use("/",Search)
 readdirSync("./routes").map((r)=>app.use("/api",require("./routes/"+r)))
+
 
 
 mongoose.connect(

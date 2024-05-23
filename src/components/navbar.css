@@ -118,6 +118,6 @@
     justify-content: flex-start;
   }
   .navbar-nav.active {
-    display: flex !important;
+    display: block !important;
   }
 }

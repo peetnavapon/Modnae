@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Link } from "react-router-dom";
+import { useState } from "react";
 import { Navbar } from "../components/navbar";
+import axios from "axios";
 const getUser = (state) => ({ ...state.user });
 import "./coursesyllabus.css";
 import "./account.css";
@@ -12,7 +14,32 @@ export const Account = () => {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [log, setLog] = useState("");
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    let currpass = e.target.elements["current_password"].value;
+    let pass_new = e.target.elements["new_password"].value;
+    if (pass_new === e.target.elements["confirm_password"].value) {
+      axios
+        .post("http://localhost:5000/api/updateUser", {
+          email: user.email,
+          password: currpass,
+          newpassword: pass_new,
+        })
+        .then((response) => {
+          setLog("เปลี่ยนรหัสผ่านสำเร็จ");
+          console.log(response.data);
+        })
+        .catch((error) => {
+          if (error.response && error.response.data === "Password invalid") {
+            setLog("รหัสผ่านเก่าไม่ถูกต้อง");
+          }
+        });
+    } else if (pass_new != e.target.elements["confirm_password"].value) {
+      setLog("รหัสผ่านใหม่ไม่ตรงกัน");
+    }
+  };
+  console.log(user);
   const logout = () => {
     dispatch({
       type: "LOGOUT",
@@ -71,35 +98,41 @@ export const Account = () => {
                 <label>อีเมล</label>
                 <p className="text-info ">{user.email}</p>
               </div>
-              <div className="flex-col text-field">
-                <label>รหัสผ่านเก่า</label>
-                <input
-                  type="password"
-                  placeholder="เปลี่ยนรหัสผ่าน"
-                  className="text-info-input"
-                />
-              </div>
-              <div className="flex-col text-field">
-                <label>รหัสผ่านใหม่</label>
-                <input
-                  type="password"
-                  placeholder="เปลี่ยนรหัสผ่าน"
-                  className="text-info-input"
-                />
-              </div>
-              <div className="flex-col text-field">
-                <label>ยืนยันรหัสผ่าน</label>
-                <input
-                  type="password"
-                  placeholder="เปลี่ยนรหัสผ่าน"
-                  className="text-info-input"
-                />
-              </div>
-              <div className="pt-02 res-center pb-03">
-                <button className="send-btn flex" type="submit" name="submit">
-                  บันทึก
-                </button>
-              </div>
+              <form onSubmit={HandleSubmit}>
+                <div className="flex-col text-field">
+                  <label>รหัสผ่านเก่า</label>
+                  <input
+                    type="password"
+                    placeholder="เปลี่ยนรหัสผ่าน"
+                    className="text-info-input"
+                    name="current_password"
+                  />
+                </div>
+                <div className="flex-col text-field">
+                  <label>รหัสผ่านใหม่</label>
+                  <input
+                    type="password"
+                    placeholder="เปลี่ยนรหัสผ่าน"
+                    className="text-info-input"
+                    name="new_password"
+                  />
+                </div>
+                <div className="flex-col text-field">
+                  <label>ยืนยันรหัสผ่าน</label>
+                  <input
+                    type="password"
+                    placeholder="เปลี่ยนรหัสผ่าน"
+                    className="text-info-input"
+                    name="confirm_password"
+                  />
+                </div>
+                <p className="p0-m0">{log}</p>
+                <div className="pt-02 res-center pb-03">
+                  <button className="send-btn flex" type="submit" name="submit">
+                    บันทึก
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

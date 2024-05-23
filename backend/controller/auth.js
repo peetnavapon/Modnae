@@ -136,13 +136,30 @@ exports.listUser = async(req,res)=>{
 }
 
 
-exports.editUser = async(req,res)=>{
-    try{
-        res.send("Edit user")
-    }catch(err){
-        console.log(err)
-        res.status(500).send("Server Error")
+exports.updateUser = async(req,res)=>{
+    const { email, password, newpassword } = req.body;
+    const encryptedPassword = await bcrypt.hash(newpassword,10)
+    const user = await User.findOne({email});
+    if(user){
+        
+        const isMatch = await bcrypt.compare(password, user.password);
+            
+        if(!isMatch){
+            return res.status(400).send("Password invalid")
+        }
+        try{
+            await User.updateOne({email: email}, {
+                password: encryptedPassword, 
+            });
+            res.send("Edit user")
+        }catch(err){
+            console.log(err)
+            res.status(500).send("Server Error")
+        }
+        
+
     }
+
 }
 exports.deleteUser = async(req,res)=>{
     try{

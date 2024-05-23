@@ -13,7 +13,7 @@ function hamMenu() {
     menu.style.display = "none";
     ham.classList.remove("active");
   } else {
-    menu.style.display = "flex";
+    menu.style.display = "block";
     ham.classList.add("active");
   }
 }

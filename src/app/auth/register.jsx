@@ -50,9 +50,7 @@ export function Register() {
         .post("http://localhost:5000/api/register", value)
         .then((response) => {
           console.log(response);
-          setLog(
-            "เราได้ส่งลิงก์สำหรับยืนยันตัวตน กรุณาตรวจสอบกล่องจดหมายเข้าในอีเมลของคุณ"
-          );
+          setLog("กรุณาตรวจสอบกล่องจดหมายเข้าในอีเมลของคุณ");
         })
         .catch((error) => {
           console.error(error);
@@ -164,7 +162,7 @@ export function Register() {
                 />
               </div>
 
-              <p>{log}</p>
+              <p className="p0-m0">{log}</p>
               <button className="loginButton">สร้างบัญชี</button>
               <p>
                 มีบัญชีอยู่แล้ว?{" "}
