@@ -28,6 +28,9 @@ import { EmailVerify } from "./app/auth/verifyEmail.jsx";
 import { Account } from "./app/account.jsx";
 import { Googleform } from "./app/ggform.jsx";
 
+import { RateOurWebsite } from "./components/rateOurWebsite.jsx";
+//Admin
+
 //Redux
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -62,41 +65,44 @@ function App() {
       });
   }
   return (
-    <Routes>
-      <Route path="/" element={<MenuDocument />} />
-      <Route
-        path="/writereview"
-        element={
-          <UserRoute>
-            <WriteReview />
-          </UserRoute>
-        }
-      />
-      <Route
-        path="/account"
-        element={
-          <UserRoute>
-            <Account />
-          </UserRoute>
-        }
-      />
-      <Route path="/readreview" element={<ReadReview />} />
-      <Route path="/menudocument" element={<MenuDocument />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/calendar" element={<Calendar />} />
-      <Route path="/coursebook" element={<CourseBook />} />
-      <Route path="/coursesyllabus" element={<CourseSyllabus />} />
-      <Route path="/peeone" element={<PeeOne />} />
-      <Route path="/peetwo" element={<PeeTwo />} />
-      <Route path="/peethree" element={<PeeThree />} />
-      <Route path="/peefour" element={<PeeFour />} />
-      <Route path="/topic" element={<Topic />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="/users/:id/verify/:tokens" element={<EmailVerify />} />
-      <Route path="/ggform" element={<Googleform />} />
-    </Routes>
+    <>
+      <RateOurWebsite />
+      <Routes>
+        <Route path="/" element={<MenuDocument />} />
+        <Route
+          path="/writereview"
+          element={
+            <UserRoute>
+              <WriteReview />
+            </UserRoute>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <UserRoute>
+              <Account />
+            </UserRoute>
+          }
+        />
+        <Route path="/readreview" element={<ReadReview />} />
+        <Route path="/menudocument" element={<MenuDocument />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/coursebook" element={<CourseBook />} />
+        <Route path="/coursesyllabus" element={<CourseSyllabus />} />
+        <Route path="/peeone" element={<PeeOne />} />
+        <Route path="/peetwo" element={<PeeTwo />} />
+        <Route path="/peethree" element={<PeeThree />} />
+        <Route path="/peefour" element={<PeeFour />} />
+        <Route path="/topic" element={<Topic />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/users/:id/verify/:tokens" element={<EmailVerify />} />
+        <Route path="/rate" element={<Googleform />} />
+      </Routes>
+    </>
   );
 }
 

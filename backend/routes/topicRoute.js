@@ -53,7 +53,8 @@ router.post("/Topic/:id/comment", async (req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route('/Topic/like/:topicId').post(async (req, res) => {
+
+router.route('/Topic/like/:id').post(async (req, res) => {
   try {
     const topicId = req.params.id;
     const { email } = req.body;
@@ -65,7 +66,7 @@ router.route('/Topic/like/:topicId').post(async (req, res) => {
 
     const topic = await Topic.findById(topicId);
     if (!topic) {
-      return res.status(404).send('Review not found');
+      return res.status(404).send('Topic not found');
     }
 
     // Toggle ไลก์
@@ -86,7 +87,7 @@ router.route('/Topic/like/:topicId').post(async (req, res) => {
     res.status(500).json('Internal Server Error');
   }
 });
-router.route('/Topic/like-status/:topicId').get(async (req, res) => {
+router.route('/Topic/like-status/:id').get(async (req, res) => {
   try {
     const topicId = req.params.id;
     const email = req.query.email;

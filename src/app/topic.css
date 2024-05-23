@@ -123,32 +123,13 @@
   padding-left: 7px;
   color: #36454f;
 }
-.ellipsis {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+.gap-3 {
+  display: flex;
+  gap: 3px;
 }
-.ellipsis-setting {
-  position: absolute;
-  right: 0;
-  margin-top: 8rem;
-  margin-right: 12em;
-  background-color: white;
-  border: 1px solid #36454f;
-  border-radius: 0.5rem;
-}
-.ellipsis-setting ul {
-  padding: 0;
-  margin: 0;
-}
-.ellipsis-setting li {
-  list-style: none; /* Remove list bullets */
-  padding: 10px 15px 10px 15px;
-  margin: 0;
-}
-.ellipsis-setting li:hover {
-  background-color: #e5e4e2;
-  cursor: pointer;
+.h-1-w-1 {
+  height: 1.5em;
+  width: 1.5em;
 }
 .comment-btn {
   display: flex;
