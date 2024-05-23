@@ -4,33 +4,36 @@ import search from "../assets/search-icon.png";
 import { IoChevronForwardSharp } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
 import axios from "axios";
-// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
-window.addEventListener("load", closeMenuOnResize);
 
-// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อปรับขนาดหน้าจอ
-window.addEventListener("resize", closeMenuOnResize);
 //เปิดปิด sidebar ตอน responsive
 function toggleSidenav() {
   const sidenav = document.getElementById("sidenav");
-
+  const hideBtn = document.getElementById("hide-btn");
   if (sidenav.style.display === "none") {
     sidenav.style.display = "flex";
+    hideBtn.classList.remove("active");
   } else {
     sidenav.style.display = "none";
+    hideBtn.classList.add("active");
   }
 }
+
 function closeMenuOnResize() {
   const sidenav = document.getElementById("sidenav");
   const hideBtn = document.getElementById("hide-btn");
   if (window.innerWidth > 720) {
     sidenav.style.display = "flex";
-    hideBtn.style.display = "none";
+    hideBtn.classList.add("active");
   } else {
     sidenav.style.display = "none";
-    hideBtn.style.display = "block";
+    hideBtn.classList.add("active");
   }
 }
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
+window.addEventListener("DOMContentLoaded", closeMenuOnResize);
 
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อปรับขนาดหน้าจอ
+window.addEventListener("resize", closeMenuOnResize);
 export function Sidenav({ onSelectSubject }) {
   //เปิด-ปิด dropdown วิชาต่างๆ
   const [opened, setOpened] = useState(false);
@@ -286,7 +289,7 @@ export function Sidenav({ onSelectSubject }) {
     <>
       <nav className="sidebar" id="sidebar">
         <div className="side-w-btn">
-          <main className="sidenav " id="sidenav" style={{ display: "flex" }}>
+          <main className="sidenav " id="sidenav">
             <div className="wrap">
               <div className="search">
                 <input
@@ -503,12 +506,7 @@ export function Sidenav({ onSelectSubject }) {
               </div>
             )}
           </main>
-          <button
-            onClick={toggleSidenav}
-            id="hide-btn"
-            className="hide-btn"
-            style={{ display: "none" }}
-          >
+          <button onClick={toggleSidenav} id="hide-btn" className="hide-btn">
             <IoChevronForwardSharp />
           </button>
         </div>

@@ -149,8 +149,8 @@
 .sub-hidden {
   padding: 1rem;
 }
-.searchSubject{
-  width: 100%;
+.searchSubject {
+  width: auto%;
   height: auto;
   display: flex;
   align-items: center;
@@ -159,26 +159,34 @@
 }
 .searchSubject::before {
   margin-left: 5px;
-  content: '\2022';
+  content: "\2022";
   color: black;
   font-size: 1.5em;
   margin-right: 8px;
 }
-.searchSubject:hover::before{
+.searchSubject:hover::before {
   color: white;
 }
-.searchSubject:hover{
-  background-color: #548A60;
+.searchSubject:hover {
+  background-color: #548a60;
   color: white;
 }
 .choice-wrapperNew {
   overflow-y: scroll;
   scrollbar-color: #3d6546 #81bfa1;
 }
-.notFound{
+.notFound {
   text-align: center;
 }
-
+.hide-btn {
+  z-index: 1;
+  display: block;
+  height: 50px;
+  background-color: #81bfa1;
+  border: none;
+  margin: 2rem 0 0.7rem;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 720px) {
   .sidebar {

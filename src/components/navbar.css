@@ -32,9 +32,10 @@
 }
 
 .nav-item {
-  font-size: 15px;
+  font-size: 1rem;
   height: 30px;
   display: flex;
+  padding-top: 5px;
 }
 
 .nav-link {
@@ -93,21 +94,23 @@
     margin: 0;
   }
   .first {
-    width: 95%;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
     margin-top: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #A63D17;
+    border-bottom: 2px solid #a63d17;
   }
   .navbar {
     flex-direction: column;
     padding: 0;
+    margin: 0;
     height: auto;
-    width: 100vw;
+    width: 100%;
   }
   .navbar-toggle {
     display: block;
+    padding-right: 1rem;
   }
   .nav-item {
     width: 100%;

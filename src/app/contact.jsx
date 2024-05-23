@@ -139,7 +139,7 @@ export function Contact() {
                 isActive={activeItem === 7}
                 onItemClick={() => handleItemClick(7)}
               />
-              {activeItem === 4 && (
+              {activeItem === 7 && (
                 <div className="hide-content">
                   <div>{content}</div>
                 </div>
