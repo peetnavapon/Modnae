@@ -27,7 +27,6 @@ import { Register } from "./app/auth/register.jsx";
 import { EmailVerify } from "./app/auth/verifyEmail.jsx";
 import { Account } from "./app/account.jsx";
 import { Googleform } from "./app/ggform.jsx";
-
 import { RateOurWebsite } from "./components/rateOurWebsite.jsx";
 //Admin
 
@@ -66,7 +65,6 @@ function App() {
   }
   return (
     <>
-      <RateOurWebsite />
       <Routes>
         <Route path="/" element={<MenuDocument />} />
         <Route
@@ -82,6 +80,14 @@ function App() {
           element={
             <UserRoute>
               <Account />
+            </UserRoute>
+          }
+        />
+        <Route
+          path="/topic"
+          element={
+            <UserRoute>
+              <Topic />
             </UserRoute>
           }
         />

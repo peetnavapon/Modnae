@@ -1,7 +1,7 @@
 import React from "react";
 import "./rateIcon.css";
 import { Link } from "react-router-dom";
-export const RateOurWebsite = () => {
+export function RateOurWebsite() {
   return (
     <Link to="/rate">
       <div className="rate-icon">
@@ -22,4 +22,4 @@ export const RateOurWebsite = () => {
       </div>
     </Link>
   );
-};
+}

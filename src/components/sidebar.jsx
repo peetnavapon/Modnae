@@ -4,7 +4,12 @@ import search from "../assets/search-icon.png";
 import { IoChevronForwardSharp } from "react-icons/io5";
 import { IoChevronBackOutline } from "react-icons/io5";
 import axios from "axios";
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
+window.addEventListener("load", closeMenuOnResize);
 
+// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อปรับขนาดหน้าจอ
+window.addEventListener("resize", closeMenuOnResize);
+//เปิดปิด sidebar ตอน responsive
 function toggleSidenav() {
   const sidenav = document.getElementById("sidenav");
   const hideBtn = document.getElementById("hide-btn");
@@ -25,15 +30,6 @@ function closeMenuOnResize() {
     hideBtn.style.display = "block";
   }
 }
-
-
-
-// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อโหลดหน้าเว็บ
-window.addEventListener("load", closeMenuOnResize);
-
-// เรียกใช้งานฟังก์ชั่นเพื่อตรวจสอบการขยายหน้าจอเมื่อปรับขนาดหน้าจอ
-window.addEventListener("resize", closeMenuOnResize);
-//เปิดปิด sidebar ตอน responsive
 
 export function Sidenav({ onSelectSubject }) {
   //เปิด-ปิด dropdown วิชาต่างๆ
@@ -253,14 +249,14 @@ export function Sidenav({ onSelectSubject }) {
       list: ["STD 214 Probability and Statics"],
     },
   ];
-  const [view,setView] =useState('default')
-  const [searchSubject,setSearchSubject] = useState("")
-  const [resultSearch,setResultSearch] = useState([])
+  const [view, setView] = useState("default");
+  const [searchSubject, setSearchSubject] = useState("");
+  const [resultSearch, setResultSearch] = useState([]);
 
   const handleSearchClick = () => {
-    setView('search');
-    console.log(searchSubject)
-    handleSearch()
+    setView("search");
+    console.log(searchSubject);
+    handleSearch();
   };
 
   const handleChangeSearch = (event) => {
@@ -268,24 +264,23 @@ export function Sidenav({ onSelectSubject }) {
   };
 
   const handleSearch = () => {
-    axios.post("http://localhost:5000/Search", {searchSubject})
-    .then((response) => {
+    axios
+      .post("http://localhost:5000/Search", { searchSubject })
+      .then((response) => {
+        setResultSearch(response.data);
+        console.log(resultSearch);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  document.addEventListener("click", (event) => {
+    const mainElement = document.getElementById("sidenav");
 
-      setResultSearch(response.data);
-      console.log(resultSearch);
-
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-document.addEventListener('click', (event) => {
-  const mainElement = document.getElementById('sidenav');
-
-  if (!mainElement.contains(event.target)) {
-    setView('default');
-  }
-});
+    if (!mainElement.contains(event.target)) {
+      setView("default");
+    }
+  });
 
   return (
     <>
@@ -302,186 +297,196 @@ document.addEventListener('click', (event) => {
                   value={searchSubject}
                   onChange={handleChangeSearch}
                 />
-                <button type="submit" onClick={handleSearchClick} className="searchButton">
+                <button
+                  type="submit"
+                  onClick={handleSearchClick}
+                  className="searchButton"
+                >
                   <img src={search}></img>
                 </button>
               </div>
             </div>
-            {view === 'default' ? (
+            {view === "default" ? (
               <div className="btn-wrapper">
-              <ul className="main-buttons">
-                <li className="categories">
-                  <i className="fa "></i>
-                  CSS
-                  <ul className="hidden choice-wrapper">
-                    {allSubject.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li className="categories">
-                  <i className="fa "></i>
-                  GEN
-                  <ul className="hidden choice-wrapper">
-                    {allGen.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li className="categories">
-                  <i className="fa "></i>
-                  LNG
-                  <ul className="hidden choice-wrapper">
-                    {allLNG.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li className="categories">
-                  <i className="fa "></i>
-                  MTH
-                  <ul className="hidden choice-wrapper">
-                    {allMTH.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li className="categories">
-                  <i className="fa "></i>
-                  NST
-                  <ul className="hidden choice-wrapper">
-                    {allNST.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li className="categories">
-                  <i className="fa "></i>
-                  STD
-                  <ul className="hidden choice-wrapper">
-                    {allSTD.map((item, index) => (
-                      <li
-                        key={index}
-                        title={item.title}
-                        className="subject-categories"
-                        onClick={() => toggleButton(index)}
-                      >
-                        {item.title}
-                        {opened[index] && (
-                          <ul className="sub-hidden">
-                            {item.list.map((subject, subIndex) => (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                onClick={() => handleItemClick(subject)}
-                              >
-                                {subject}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            ):(
-              <div className={resultSearch && resultSearch.length > 0 ?"choice-wrapperNew":"notFound"}>
+                <ul className="main-buttons">
+                  <li className="categories">
+                    <i className="fa "></i>
+                    CSS
+                    <ul className="hidden choice-wrapper">
+                      {allSubject.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="categories">
+                    <i className="fa "></i>
+                    GEN
+                    <ul className="hidden choice-wrapper">
+                      {allGen.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="categories">
+                    <i className="fa "></i>
+                    LNG
+                    <ul className="hidden choice-wrapper">
+                      {allLNG.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="categories">
+                    <i className="fa "></i>
+                    MTH
+                    <ul className="hidden choice-wrapper">
+                      {allMTH.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="categories">
+                    <i className="fa "></i>
+                    NST
+                    <ul className="hidden choice-wrapper">
+                      {allNST.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li className="categories">
+                    <i className="fa "></i>
+                    STD
+                    <ul className="hidden choice-wrapper">
+                      {allSTD.map((item, index) => (
+                        <li
+                          key={index}
+                          title={item.title}
+                          className="subject-categories"
+                          onClick={() => toggleButton(index)}
+                        >
+                          {item.title}
+                          {opened[index] && (
+                            <ul className="sub-hidden">
+                              {item.list.map((subject, subIndex) => (
+                                <li
+                                  key={`${index}-${subIndex}`}
+                                  onClick={() => handleItemClick(subject)}
+                                >
+                                  {subject}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <div
+                className={
+                  resultSearch && resultSearch.length > 0
+                    ? "choice-wrapperNew"
+                    : "notFound"
+                }
+              >
                 {resultSearch && resultSearch.length > 0 ? (
                   resultSearch.map((resultSearch, index) => (
                     <li
@@ -497,7 +502,6 @@ document.addEventListener('click', (event) => {
                 )}
               </div>
             )}
-            
           </main>
           <button
             onClick={toggleSidenav}

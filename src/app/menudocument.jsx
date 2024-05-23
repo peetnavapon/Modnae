@@ -2,11 +2,13 @@ import React from "react";
 import { Navbar } from "../components/navbar";
 import "./menudocument.css";
 import { Link } from "react-router-dom";
+import { RateOurWebsite } from "../components/rateOurWebsite";
 
 export function MenuDocument() {
   return (
     <>
       <Navbar />
+      <RateOurWebsite />
       <main className="allcontent">
         <div className="doc-menu">
           <div className="row">
